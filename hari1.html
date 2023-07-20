@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <style>
+    body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 100px auto;
+    max-width: 400px;
+}
+
+h1 {
+    color: #e91e63;
+}
+
+p {
+    font-size: 18px;
+}
+
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday!</h1>
+        <p id="greeting"></p>
+        <p id="age"></p>
+    </div>
+
+    <script>const birthdayPerson = {
+    name: "Hari",
+    birthdate: "2003-07-21", 
+};
+
+function calculateAge(birthdate) {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const greetingElement = document.getElementById("greeting");
+    const ageElement = document.getElementById("age");
+
+    greetingElement.textContent = `Happy Birthday, ${birthdayPerson.name}!`;
+    ageElement.textContent = `You're now ${calculateAge(birthdayPerson.birthdate)} years old.`;
+});
+</script>
+</body>
+</html>
